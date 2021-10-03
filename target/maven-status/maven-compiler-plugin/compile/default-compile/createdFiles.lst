@@ -1,0 +1,5 @@
+personal\ibonny\esstorage\EntryPoint.class
+personal\ibonny\esstorage\models\ChunkModel.class
+personal\ibonny\esstorage\models\FileModel.class
+personal\ibonny\esstorage\repositories\FileRepository.class
+personal\ibonny\esstorage\services\ESService.class

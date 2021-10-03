@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="db47545f-9d91-4721-b3ae-763e16380180" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1yxAEEBFP0OPwIz7jYy3b1zgPwo" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="EntryPoint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="personal.ibonny.esstorage.EntryPoint" />
+      <module name="es-storage" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="personal.ibonny.esstorage.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.EntryPoint" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="db47545f-9d91-4721-b3ae-763e16380180" name="Default Changelist" comment="" />
+      <created>1633182751517</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1633182751517</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="2505" height="389" key="GridCell.Tab.0.bottom" timestamp="1633282830634">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2505" height="389" key="GridCell.Tab.0.bottom/2560.351.1920.1040/0.0.2560.1400/-1920.182.1920.1080@0.0.2560.1400" timestamp="1633282830634" />
+    <state width="2505" height="389" key="GridCell.Tab.0.center" timestamp="1633282830634">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2505" height="389" key="GridCell.Tab.0.center/2560.351.1920.1040/0.0.2560.1400/-1920.182.1920.1080@0.0.2560.1400" timestamp="1633282830634" />
+    <state width="2505" height="389" key="GridCell.Tab.0.left" timestamp="1633282830633">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2505" height="389" key="GridCell.Tab.0.left/2560.351.1920.1040/0.0.2560.1400/-1920.182.1920.1080@0.0.2560.1400" timestamp="1633282830633" />
+    <state width="2505" height="389" key="GridCell.Tab.0.right" timestamp="1633282830634">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2505" height="389" key="GridCell.Tab.0.right/2560.351.1920.1040/0.0.2560.1400/-1920.182.1920.1080@0.0.2560.1400" timestamp="1633282830634" />
+    <state x="896" y="361" width="768" height="678" key="find.popup" timestamp="1633296848557">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="896" y="361" width="768" height="678" key="find.popup/2560.351.1920.1040/0.0.2560.1400/-1920.182.1920.1080@0.0.2560.1400" timestamp="1633296848557" />
+  </component>
+</project>
