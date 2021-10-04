@@ -190,7 +190,7 @@ public class ESService {
 
         SearchSourceBuilder ssb = new SearchSourceBuilder();
 
-        ssb.query(QueryBuilders.matchQuery("filename", filename));
+        ssb.query(QueryBuilders.termQuery("filename", filename));
 
         sr.source(ssb);
 
@@ -460,7 +460,7 @@ public class ESService {
 
         SearchSourceBuilder ssb = new SearchSourceBuilder();
 
-        ssb.query(QueryBuilders.matchQuery("_id", chunkId));
+        ssb.query(QueryBuilders.termQuery("_id", chunkId));
 
         sr.source(ssb);
 
@@ -496,7 +496,7 @@ public class ESService {
 
         SearchSourceBuilder ssb = new SearchSourceBuilder();
 
-        ssb.query(QueryBuilders.matchQuery("filename", filename));
+        ssb.query(QueryBuilders.termQuery("filename", filename));
 
         sr.source(ssb);
 
@@ -548,7 +548,7 @@ public class ESService {
 
         SearchSourceBuilder ssb = new SearchSourceBuilder();
 
-        ssb.query(QueryBuilders.matchQuery("filename", filename.getAbsoluteFile()));
+        ssb.query(QueryBuilders.termQuery("filename", filename.getAbsoluteFile()));
 
         sr.source(ssb);
 
