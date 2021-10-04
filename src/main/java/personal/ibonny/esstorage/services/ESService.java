@@ -161,6 +161,34 @@ public class ESService {
             .collect(Collectors.toList());
     }
 
+    public ChunkModel getChunkById(String chunkId) {
+        SearchRequest sr = new SearchRequest(CHUNK_INDEX_NAME);
+
+        SearchSourceBuilder ssb = new SearchSourceBuilder();
+
+        ssb.query(QueryBuilders.termQuery("id", chunkId));
+
+        sr.source(ssb);
+
+        SearchResponse sRes;
+
+        try {
+            sRes = client.search(sr, RequestOptions.DEFAULT);
+        } catch (IOException e) {
+            e.printStackTrace();
+
+            return null;
+        }
+
+        try {
+            return mapper.readValue(sRes.getHits().getHits()[0].getSourceAsString(), ChunkModel.class);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+
+            return null;
+        }
+    }
+
     public List<String> searchForFiles() {
         SearchRequest sr = new SearchRequest(FILE_INDEX_NAME);
 
@@ -591,5 +619,25 @@ public class ESService {
         }
 
         return baos;
+    }
+
+    public void integrityCheck() {
+        List<FileModel> files = getAllFiles();
+
+        for (FileModel file: files) {
+            System.out.printf("Checking %s... ", file.getFilename());
+
+            System.out.printf("Checking %d chunks... ", file.getChunkList().size());
+
+            for (String chunkId: file.getChunkList()) {
+                ChunkModel chunk = getChunk(chunkId);
+
+                if (chunk == null) {
+                    System.out.printf("ERROR!! Chunk %s id bad.", chunkId);
+                }
+            }
+
+            System.out.println("Done.");
+        }
     }
 }

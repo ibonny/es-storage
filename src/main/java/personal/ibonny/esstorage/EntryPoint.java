@@ -228,6 +228,12 @@ public class EntryPoint implements Callable<Integer> {
             commandFound = true;
         }
 
+        if (action.equals("integrity")) {
+            esService.integrityCheck();
+
+            commandFound = true;
+        }
+
         esService.closeClient();
 
         if (! commandFound) {
