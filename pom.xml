@@ -97,6 +97,9 @@
                         <manifest>
                             <mainClass>personal.ibonny.esstorage.EntryPoint</mainClass>
                         </manifest>
+                        <manifestEntries>
+                            <Multi-Release>true</Multi-Release>
+                        </manifestEntries>
                     </archive>
                 </configuration>
 
