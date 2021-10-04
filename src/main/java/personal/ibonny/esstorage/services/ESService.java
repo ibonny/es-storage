@@ -216,7 +216,7 @@ public class ESService {
 
         SearchSourceBuilder ssb = new SearchSourceBuilder();
 
-        ssb.query(QueryBuilders.matchQuery("filename", filename));
+        ssb.query(QueryBuilders.termQuery("filename", filename));
 
         sr.source(ssb);
 
