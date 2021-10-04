@@ -23,7 +23,6 @@ import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import personal.ibonny.esstorage.models.ChunkModel;
 import personal.ibonny.esstorage.models.FileModel;
-import personal.ibonny.esstorage.repositories.FileRepository;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -37,8 +36,6 @@ public class ESService {
     public static final String CHUNK_INDEX_NAME = "chunk_index";
 
     private RestHighLevelClient client;
-
-    private FileRepository fileRepository = new FileRepository();
 
     ObjectMapper mapper = new ObjectMapper();
 
@@ -451,6 +448,9 @@ public class ESService {
         SearchSourceBuilder ssb = new SearchSourceBuilder();
 
         ssb.query(QueryBuilders.matchAllQuery());
+
+        ssb.from(0);
+        ssb.size(10000);
 
         sr.source(ssb);
 

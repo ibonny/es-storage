@@ -1,16 +1,13 @@
 package personal.ibonny.esstorage;
 
-import personal.ibonny.esstorage.models.FileModel;
+import personal.ibonny.esstorage.services.CallOutFunctions;
 import personal.ibonny.esstorage.services.ESService;
 import picocli.CommandLine;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.Callable;
 
 
@@ -37,6 +34,8 @@ public class EntryPoint implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
+        CallOutFunctions cof = new CallOutFunctions();
+
         String inputFileName = "";
         String outputFileName = "";
 
@@ -54,110 +53,19 @@ public class EntryPoint implements Callable<Integer> {
 
         boolean commandFound = false;
 
-        if (action.equals("cat")) {
-            if (parameters.size() == 0) {
-                System.out.println("\n   Please provide filename to cat.");
+        cof.setParameters(Map.of(
+            "bufferSize", bufferSize,
+            "hostPort", hostPort,
+            "optimalBufferSize", optimalBufferSize,
+            "sortOrder", sortOrder
+        ));
 
-                return 1;
+        if (cof.FUNCTIONS.containsKey(action)) {
+            if (parameters == null) {
+                parameters = new ArrayList<>();
             }
 
-            inputFileName = parameters.get(0);
-
-            ByteArrayOutputStream baos = esService.getFile(inputFileName);
-
-            ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
-
-            int numBytes;
-
-            byte[] buffer = new byte[1024];
-
-            while ((numBytes = bais.read(buffer, 0, 1024)) != -1) {
-                System.out.write(buffer, 0, numBytes);
-            }
-
-            commandFound = true;
-        }
-
-        if (action.equals("list")) {
-            List<FileModel> files = esService.getAllFiles();
-
-            if (files.size() == 0) {
-                System.out.println("\n   No files found.\n");
-
-                esService.closeClient();
-
-                return 0;
-            }
-
-            int maxFileLength = 0;
-
-            for (FileModel fm: files) {
-                if (fm.getFilename().length() > maxFileLength) {
-                    maxFileLength = fm.getFilename().length();
-                }
-            }
-
-            if (sortOrder.equals("asc")) {
-                files.sort(Comparator.comparing(FileModel::getFilename));
-            }
-
-            if (sortOrder.equals("desc")) {
-                files.sort(Comparator.comparing(FileModel::getFilename).reversed());
-            }
-
-            System.out.println(String.format("%-10s %-" + maxFileLength + "s %s",
-                "File Size",
-                "File Name",
-                "Num Chunks"
-            ));
-
-            System.out.println(String.format("%-10s %-" + maxFileLength + "s %s",
-                "----------",
-                "-".repeat(maxFileLength),
-                "----------"
-            ));
-
-            for (FileModel fm: files) {
-                System.out.println(String.format("%10d %-" + maxFileLength + "s %d (%d)",
-                    fm.getFilesize(),
-                    fm.getFilename(),
-                    fm.getChunkList().size(),
-                    fm.getChunkSize()
-                ));
-            }
-
-            commandFound = true;
-        }
-
-        if (action.equals("store") || action.equals("put")) {
-            if (parameters.size() == 0) {
-                System.out.println("\n   Please provide either a filename to use as input and output, " +
-                    "or a filename to use as input, and one to use as output.");
-
-                return 1;
-            }
-
-            if (parameters.size() == 1) {
-                inputFileName = parameters.get(0);
-                outputFileName = parameters.get(0);
-            }
-
-            if (parameters.size() == 2) {
-                inputFileName = parameters.get(0);
-                outputFileName = parameters.get(1);
-            }
-
-            if (optimalBufferSize) {
-                bufferSize = calculateOptimpalBufferSize(inputFileName);
-
-                System.out.println("Using calculated buffer size of " + bufferSize + " bytes.");
-            }
-
-            System.out.println("Attempting to write " + inputFileName + " to output name: " + outputFileName);
-
-            esService.storeFile(inputFileName, outputFileName, bufferSize);
-
-            commandFound = true;
+            return (int) cof.FUNCTIONS.get(action).invoke(cof, parameters);
         }
 
         if (action.equals("get")) {
@@ -243,26 +151,6 @@ public class EntryPoint implements Callable<Integer> {
         }
 
         return 0;
-    }
-
-    private int calculateOptimpalBufferSize(String inputFileName) {
-        File file = new File(inputFileName);
-
-        if (file.length() < 4096) {
-            System.out.println("Using buffer size of 4096.");
-
-            return 4096;
-        }
-
-        long fileSize = file.length();
-
-        int bufferSize = 128;
-
-        while (fileSize / bufferSize > 25 && bufferSize <= 65536) {
-            bufferSize *= 2;
-        }
-
-        return bufferSize;
     }
 
     public static void main(String[] args) {
