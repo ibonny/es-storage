@@ -10,7 +10,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @ToString
-public class FileModel {
+public class FileModel implements Comparable {
     private String id;
 
     private String bucket;
@@ -29,5 +29,12 @@ public class FileModel {
         this.chunkSize = chunkSize;
 
         this.chunkList = cl;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        String compareTu = ((FileModel) o).getFilename();
+
+        return compareTu.compareTo(this.filename);
     }
 }

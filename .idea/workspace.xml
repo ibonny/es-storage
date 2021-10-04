@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db47545f-9d91-4721-b3ae-763e16380180" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/target/classes/personal/ibonny/esstorage/EntryPoint.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/personal/ibonny/esstorage/models/ChunkModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/personal/ibonny/esstorage/models/FileModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/personal/ibonny/esstorage/repositories/FileRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/personal/ibonny/esstorage/services/ESService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/es-storage-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/es-storage-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personal/ibonny/esstorage/EntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personal/ibonny/esstorage/EntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personal/ibonny/esstorage/models/FileModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personal/ibonny/esstorage/models/FileModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +31,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="experimental" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunManager">
@@ -87,6 +80,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1041" y="341" key="#com.intellij.ide.util.MemberChooser" timestamp="1633308555357">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1041" y="341" key="#com.intellij.ide.util.MemberChooser/2560.351.1920.1040/0.0.2560.1400/-1920.182.1920.1080@0.0.2560.1400" timestamp="1633308555357" />
     <state width="2505" height="389" key="GridCell.Tab.0.bottom" timestamp="1633282830634">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -103,6 +100,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2505" height="389" key="GridCell.Tab.0.right/2560.351.1920.1040/0.0.2560.1400/-1920.182.1920.1080@0.0.2560.1400" timestamp="1633282830634" />
+    <state x="665" y="256" key="SettingsEditor" timestamp="1633309159018">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="665" y="256" key="SettingsEditor/2560.351.1920.1040/0.0.2560.1400/-1920.182.1920.1080@0.0.2560.1400" timestamp="1633309159018" />
     <state x="896" y="361" width="768" height="678" key="find.popup" timestamp="1633296848557">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

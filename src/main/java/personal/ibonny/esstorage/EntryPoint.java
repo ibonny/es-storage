@@ -8,6 +8,8 @@ import picocli.CommandLine.Parameters;
 
 import java.io.*;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.Callable;
 
@@ -29,6 +31,9 @@ public class EntryPoint implements Callable<Integer> {
 
     @Option(names = {"--opt"}, defaultValue = "false", description = "Use optimized buffer size.")
     private boolean optimalBufferSize;
+
+    @Option(names = {"--sort"}, defaultValue = "none", description = "Sort order for listings. [asc, desc, none]")
+    private String sortOrder;
 
     @Override
     public Integer call() throws Exception {
@@ -90,6 +95,14 @@ public class EntryPoint implements Callable<Integer> {
                 if (fm.getFilename().length() > maxFileLength) {
                     maxFileLength = fm.getFilename().length();
                 }
+            }
+
+            if (sortOrder.equals("asc")) {
+                files.sort(Comparator.comparing(FileModel::getFilename));
+            }
+
+            if (sortOrder.equals("desc")) {
+                files.sort(Comparator.comparing(FileModel::getFilename).reversed());
             }
 
             System.out.println(String.format("%-10s %-" + maxFileLength + "s %s",
